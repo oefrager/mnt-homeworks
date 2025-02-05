@@ -8,7 +8,8 @@
         name: clickhouse-server
         state: restarted
   tasks:
-    - block:
+    - name: Install clickhouse packages
+      block:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
@@ -35,40 +36,51 @@
       failed_when: create_db.rc != 0 and create_db.rc !=82
       changed_when: create_db.rc == 0
 
-  #------------------------------------------------
+# ------------------------------------------------
 
 - name: Install Vector
   hosts: vector
-  handlers:                   # Объявление списка handlers для перезапуска сервиса vector
-    - name: restart-vector
+  handlers:                   # Объявление списка handlers для перезапуска сервиса Vector
+    - name: Restart Vector
       become: true
       ansible.builtin.service:
         name: vector
         state: restarted
-  tasks:
-    - name: Get Vector version          # Проверяемм наличие vecor в системе
+    - name: Get Vector version          # Проверяемм наличие Vector в системе
       ansible.builtin.command: vector --version
       register: is_installed
-    - block:                            # скачиваем Vector
-        - name: Get vectore distrib
-          ansible.builtin.get_url:
-            url: "https://packages.timber.io/vector/{{ vector_version }}/vector_{{ vector_version }}-1.x86_64.rpm"
-            dest: "./vector-{{ vector_version }}.rpm"
-          mode: 0755
-          when:
-            - is_installed is failed
-            - ansible_distribution == “CentOS”
-    - name: Replace vector.conf
-      template:
-        - src=templates/vector.conf
-        - dest=/etc/vector/vector.conf
-    - name: Install clickhouse packages # устанавливаем Vector
+      notify:
+      - Restart Vector
+      tags:
+      - vector
+      - info
+  tasks:
+    - name: Get Vector distrib     # скачиваем Vector
+      ansible.builtin.get_url:
+        url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
+        dest: "./vector-{{ vector_version }}-1.x86_64.rpm"
+        mode: 0755
+####      with_items: "{{ vector_packages }}"
+#      when:
+ #       - is_installed is failed
+###        - ansible_distribution == “CentOS”
+      tags:
+      - vector
+      - installed
+    - name: Install Vector packages # устанавливаем Vector
       become: true
       ansible.builtin.yum:
         name:
-          - vector-{{ vector_version }}.rpm
+          - vector-{{ vector_version }}-1.x86_64.rpm
       notify: Start vector service
     - name: Flush vector
       meta: flush_vector
-        
-    
+    - name: Replace Vector create
+      file:
+        path: " {{ vector_config }}"
+        state: directory
+        mode: 644
+    - name: Replace Vector config
+      ansible.builtin.template:
+        src=templates/vector.conf
+        dest=/etc/vector/vector.yaml
