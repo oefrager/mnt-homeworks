@@ -9,6 +9,7 @@
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 
 ![изображение](https://github.com/user-attachments/assets/64a293b7-461f-4e26-ba13-75daa2fe3c7e)
+![изображение](https://github.com/user-attachments/assets/b72a0097-22e9-46d0-88cc-83ab56c30298)
 
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
