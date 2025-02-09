@@ -82,7 +82,7 @@
   - name: Start nginx service
     become: true
     systemd:
-      name: Nginx systemd
+      name: nginx systemd
       enabled: yes
       state: restarted
   tasks:
@@ -96,10 +96,10 @@
         - nginx systemd
     - name: Lighthouse config           # Настраиваем Lighthouse
       become: true
-      ansible.builtin.get_url:
-        src: git@github.com:VKCOM/lighthouse.git
-        dest: /var/www/html/
-        mode: '644'
+      ansible.builtin.git:
+        repo: "https://github.com/VKCOM/lighthouse.git"
+        dest: "/var/www/html/"
+#        mode: '644'
       tags: config_lighthouse
       notify: Start nginx service
     - name: Flush handlers

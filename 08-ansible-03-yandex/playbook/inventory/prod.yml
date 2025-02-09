@@ -9,7 +9,7 @@ clickhouse:
      # ansible_private_key_file: ~/.ssh/id_ed25519
 vector:
   hosts:
-    vector:
+    vector-02 :
       ansible_connection: docker
   #    ansible_connection: ssh
    #   ansible_ssh_user: goi
@@ -17,7 +17,7 @@ vector:
      # ansible_private_key_file: ~/.ssh/id_ed25519
 lighthouse:
   hosts:
-    lighthouse:
+    lighthouse-03:
       ansible_connection: docker
 #      ansible_connection: ssh
  #     ansible_ssh_user: goi
