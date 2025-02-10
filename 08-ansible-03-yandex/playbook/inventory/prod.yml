@@ -2,24 +2,24 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_connection: docker
-  #    ansible_connection: ssh
-   #   ansible_ssh_user: goi
-    #  ansible_host: 89.169.159.223
-     # ansible_private_key_file: ~/.ssh/id_ed25519
+  #    ansible_connection: docker
+      ansible_connection: ssh
+      ansible_ssh_user: goi
+      ansible_host: 158.160.59.215
+      ansible_private_key_file: ~/.ssh/id_ed25519
 vector:
   hosts:
-    vector-02 :
-      ansible_connection: docker
-  #    ansible_connection: ssh
-   #   ansible_ssh_user: goi
-    #  ansible_host: 158.160.51.114
-     # ansible_private_key_file: ~/.ssh/id_ed25519
+    vector-02:
+#      ansible_connection: docker
+      ansible_connection: ssh
+      ansible_ssh_user: goi
+      ansible_host: 89.169.139.197
+      ansible_private_key_file: ~/.ssh/id_ed25519
 lighthouse:
   hosts:
     lighthouse-03:
-      ansible_connection: docker
-#      ansible_connection: ssh
- #     ansible_ssh_user: goi
-  #    ansible_host: 89.169.159.223
-   #   ansible_private_key_file: ~/.ssh/id_ed25519
+#      ansible_connection: docker
+      ansible_connection: ssh
+      ansible_ssh_user: goi
+      ansible_host: 89.169.131.233
+      ansible_private_key_file: ~/.ssh/id_ed25519

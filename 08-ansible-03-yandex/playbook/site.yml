@@ -41,9 +41,9 @@
 
 - name: Install Vector
   hosts: vector
+  become: true
   handlers:                             # Объявление списка handlers для перезапуска сервиса Vector
     - name: Start vector service
-      become: true
       ansible.builtin.service:
         name: vector
         state: restarted
@@ -59,12 +59,10 @@
         dest: "/tmp/vector.deb"
         mode: '644'
     - name: Install Vector packages     # Устанавливаем Vector
-      become: true
       ansible.builtin.apt:
         deb: "/tmp/vector.deb"
       notify: Start vector service
     - name: Vector config               # Настраиваем Vector
-      become: true
       ansible.builtin.template:
         src: templates/vector.yml.j2
         dest: /etc/vector/vector.yaml
@@ -78,28 +76,33 @@
 
 - name: Install Nginx Web Server
   hosts: lighthouse
+  become: true
   handlers:                             # Объявление списка handlers для перезапуска сервиса Nginx
-  - name: Start nginx service
-    become: true
-    systemd:
-      name: nginx systemd
-      enabled: yes
-      state: restarted
+    - name: Start nginx service
+      ansible.builtin.service:
+        name: nginx
+        enabled: "yes"
+        state: restarted
   tasks:
     - name: Install Nginx               # Устанавливаем Nginx
-      #ansible.builtin.apt:
       ansible.builtin.apt:
-        name: "nginx"
-        state: "latest"
+        name: nginx
+        state: present
         update_cache: true
-      notify:
-        - nginx systemd
+      notify: Start nginx service
+    - name: Nginx config
+      ansible.builtin.template:
+        src: templates/nginx.j2
+        dest: /etc/nginx/conf.d/lighthouse.conf
+        mode: '644'
+    - name: Install Git                 # Устанавливаем Git
+      ansible.builtin.apt:
+        name: "git"
     - name: Lighthouse config           # Настраиваем Lighthouse
-      become: true
       ansible.builtin.git:
         repo: "https://github.com/VKCOM/lighthouse.git"
         dest: "/var/www/html/"
-#        mode: '644'
+        version: master
       tags: config_lighthouse
       notify: Start nginx service
     - name: Flush handlers
