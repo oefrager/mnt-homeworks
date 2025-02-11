@@ -24,8 +24,13 @@
 7. Повторите шаги 3–6 для LightHouse. Помните, что одна роль должна настраивать один продукт.
 8. Выложите все roles в репозитории. Проставьте теги, используя семантическую нумерацию. Добавьте roles в `requirements.yml` в playbook.
 9. Переработайте playbook на использование roles. Не забудьте про зависимости LightHouse и возможности совмещения `roles` с `tasks`.
+
+![изображение](https://github.com/user-attachments/assets/cb1069c2-b74d-4a78-9577-129da1ff94fc)
+
 10. Выложите playbook в репозиторий.
+
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
 [LightHouse](https://github.com/oefrager/lighthouse-role.git)
+
 [Vector](https://github.com/oefrager/vector-role.git)
