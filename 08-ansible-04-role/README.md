@@ -1,11 +1,3 @@
-# Домашнее задание к занятию 4 «Работа с roles»
-
-## Подготовка к выполнению
-
-1. * Необязательно. Познакомьтесь с [LightHouse](https://youtu.be/ymlrNlaHzIY?t=929).
-2. Создайте два пустых публичных репозитория в любом своём проекте: vector-role и lighthouse-role.
-3. Добавьте публичную часть своего ключа к своему профилю на GitHub.
-
 ## Основная часть
 
 Ваша цель — разбить ваш playbook на отдельные roles. 
@@ -13,8 +5,6 @@
 Задача — сделать roles для ClickHouse, Vector и LightHouse и написать playbook для использования этих ролей. 
 
 Ожидаемый результат — существуют три ваших репозитория: два с roles и один с playbook.
-
-**Что нужно сделать**
 
 1. Создайте в старой версии playbook файл `requirements.yml` и заполните его содержимым:
 
@@ -38,3 +28,4 @@
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
 [LightHouse](https://github.com/oefrager/lighthouse-role.git)
+[Vector](https://github.com/oefrager/vector-role.git)
