@@ -29,7 +29,7 @@
 9. Переработайте playbook на использование roles. Не забудьте про зависимости LightHouse и возможности совмещения `roles` с `tasks`.
 10. Выложите playbook в репозиторий.
 
-   [playbook](https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/site.yml)
+       [playbook](https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/site.yml)
    
 Запускаем:
 
