@@ -22,18 +22,18 @@
 5. Перенести нужные шаблоны конфигов в `templates`.
 6. Опишите в `README.md` обе роли и их параметры. Пример качественной документации ansible role [по ссылке](https://github.com/cloudalchemy/ansible-prometheus).
 7. Повторите шаги 3–6 для LightHouse. Помните, что одна роль должна настраивать один продукт.
-8. Выложите все roles в репозитории. Проставьте теги, используя семантическую нумерацию. Добавьте roles в `` в playbook.
+8. Выложите все roles в репозитории. Проставьте теги, используя семантическую нумерацию. Добавьте roles в 'requirements.yml` в playbook.
 
-[requirements.yml](https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/requirements.yml)
+   [requirements.yml](https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/requirements.yml)
 
 9. Переработайте playbook на использование roles. Не забудьте про зависимости LightHouse и возможности совмещения `roles` с `tasks`.
 10. Выложите playbook в репозиторий.
 
-[playbook]([https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/site.yml)
+   [playbook]([https://github.com/oefrager/mnt-homeworks/edit/main/08-ansible-04-role/site.yml)
 
 Запускаем:
 
-![изображение](https://github.com/user-attachments/assets/cb1069c2-b74d-4a78-9577-129da1ff94fc)
+   ![изображение](https://github.com/user-attachments/assets/cb1069c2-b74d-4a78-9577-129da1ff94fc)
 
 
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
