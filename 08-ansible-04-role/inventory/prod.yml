@@ -5,7 +5,7 @@ clickhouse:
   #    ansible_connection: docker
       ansible_connection: ssh
       ansible_ssh_user: goi
-      ansible_host: 158.160.59.215
+      ansible_host: 158.160.34.157
       ansible_private_key_file: ~/.ssh/id_ed25519
 vector:
   hosts:
@@ -13,7 +13,7 @@ vector:
 #      ansible_connection: docker
       ansible_connection: ssh
       ansible_ssh_user: goi
-      ansible_host: 89.169.139.197
+      ansible_host: 51.250.81.129
       ansible_private_key_file: ~/.ssh/id_ed25519
 lighthouse:
   hosts:
@@ -21,5 +21,5 @@ lighthouse:
 #      ansible_connection: docker
       ansible_connection: ssh
       ansible_ssh_user: goi
-      ansible_host: 89.169.131.233
+      ansible_host: 158.160.97.27
       ansible_private_key_file: ~/.ssh/id_ed25519
