@@ -10,6 +10,7 @@
 
 4. [Работа с Roles](./08-ansible-04-role).
 
+<!--- 
 5. [Тестирование Roles](./08-ansible-05-testing).
 
 6. [Создание собственных модулей](./08-ansible-06-module).
@@ -40,3 +41,4 @@
 
 17. [Инцидент-менеджмент](/10-monitoring-06-incident-management).
 
+--->
