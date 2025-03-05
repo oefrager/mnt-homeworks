@@ -10,15 +10,14 @@
 
 4. [Работа с Roles](./08-ansible-04-role).
 
-<!--- 
 5. [Тестирование Roles](./08-ansible-05-testing).
-
+<!--- 
 6. [Создание собственных модулей](./08-ansible-06-module).
-
+--->
 ## Непрерывная разработка и интеграция
 
 #7. [Жизненный цикл ПО](./09-ci-01-intro/README.md).
-
+<!--- 
 #8. [DevOps и SRE](./09-ci-02-devops/README.md).
 
 #9. [Процессы CI/CD](./09-ci-03-cicd/README.md).
@@ -41,6 +40,3 @@
 
 <<<<<<< HEAD
 --->
-=======
-#17. [Инцидент-менеджмент](/10-monitoring-06-incident-management).
->>>>>>> eb6caf7 (	новый файл:    08-ansible-05-testing/README.md)
