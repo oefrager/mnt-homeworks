@@ -17,11 +17,9 @@
 ## Непрерывная разработка и интеграция
 
 7. [Жизненный цикл ПО](./09-ci-01-intro/README.md).
-<!--- 
-#8. [DevOps и SRE](./09-ci-02-devops/README.md).
 
 #9. [Процессы CI/CD](./09-ci-03-cicd/README.md).
-
+<!--- 
 #10. [Jenkins](./09-ci-04-jenkins/README.md).
 
 #11. [Teamcity](./09-ci-05-teamcity/README.md).
