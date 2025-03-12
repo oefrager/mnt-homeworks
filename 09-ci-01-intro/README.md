@@ -44,4 +44,3 @@
    Схемы workflow:
    - [bug](Workflow_bug.xml)
    - [task](Workflow_task.xml)
-   - 
