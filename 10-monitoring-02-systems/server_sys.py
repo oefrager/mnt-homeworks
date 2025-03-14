@@ -37,7 +37,6 @@ def get_system_info():
 
     # Информация о загрузке сети (в килобайтах)
     with open('/proc/net/dev') as f:
-        ipv4_Rx = ipv4_Tx = None
         for line in f:
             if line.startswith('enp2s0:'):
                 ipv4 = {}
