@@ -18,6 +18,7 @@
 7. Проверьте готовность Nexus через [бразуер](http://localhost:8081).
 8. Подключитесь под admin\admin123, поменяйте пароль, сохраните анонимный доступ.
 
+
 ## Знакомоство с SonarQube
 
 1. Создаеv новый проект, название произвольное.
@@ -42,14 +43,12 @@
 7. Исправляем ошибки, которые он выявил, включая warnings.
 8. Запускаем анализатор повторно — проверьте, что QG пройдены успешно:
 
-![изображение](https://github.com/user-attachments/assets/fd91d03f-9ecf-4f39-ac12-2915ac16ee0e)
+   ![изображение](https://github.com/user-attachments/assets/fd91d03f-9ecf-4f39-ac12-2915ac16ee0e)
 
 
 ## Знакомство с Nexus
 
-### Основная часть
-
-1. В репозиторий `maven-public` загрузите артефакт с GAV-параметрами:
+1. В репозиторий `maven-public` загружаем артефакт с GAV-параметрами:
 
  *    groupId: netology;
  *    artifactId: java;
@@ -57,12 +56,13 @@
  *    classifier: distrib;
  *    type: tar.gz.
    
-2. В него же загрузите такой же артефакт, но с version: 8_102.
-3. Проверьте, что все файлы загрузились успешно.
+2. Повторяем такой же артефакт, но с version: 8_102.
+3. Проверяем, что все файлы загрузились успешно.
 
-   ![изображение](https://github.com/user-attachments/assets/2d41dfc0-04a6-4397-a869-94f17c05f5ae)
+   ![изображение](https://github.com/user-attachments/assets/682237ac-ac7f-40d3-9b0e-13febb284b98)
 
-4. В ответе пришлите файл [maven-metadata.xml](maven-metadata.xml) для этого артефекта.
+4. В ответе получаем файл [maven-metadata.xml](maven-metadata.xml) для этого артефекта.
+
 
 ### Знакомство с Maven
 
