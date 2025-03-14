@@ -1,0 +1,72 @@
+{
+    "11:50:19.297497": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 3999,
+        "memory_free_kb": 5476800,
+        "system_uptime_sec": 11852,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
+{
+    "11:50:22.574962": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 4001,
+        "memory_free_kb": 5600128,
+        "system_uptime_sec": 11856,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
+{
+    "11:50:38.680547": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 3795,
+        "memory_free_kb": 5553292,
+        "system_uptime_sec": 11872,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
+{
+    "11:51:11.793751": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 3715,
+        "memory_free_kb": 5582324,
+        "system_uptime_sec": 11905,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
+{
+    "11:51:13.051767": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 3863,
+        "memory_free_kb": 5575016,
+        "system_uptime_sec": 11906,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
+{
+    "11:51:13.678396": {
+        "system core": "6.11.0-19-generic",
+        "cpu_load_MHz": 3001,
+        "memory_free_kb": 5558260,
+        "system_uptime_sec": 11907,
+        "ipv4:": {
+            "Rx_kb/s": 7.0,
+            "Tx_kb/s": 1.0
+        }
+    }
+}
