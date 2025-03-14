@@ -33,7 +33,6 @@ variable "vpc_name" {
 
 variable  "vm_image" {
   type        = string
-#  default     = "fd8gdrfaftkcaarp40fe"
   default     = "centos-7-oslogin"
   description = "CentOS 7 release name"
 }
