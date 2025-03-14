@@ -2,28 +2,48 @@
 
 ## Подготовка к выполнению
 
-1. Создайте два VM в Yandex Cloud с параметрами: 2CPU 4RAM Centos7 (остальное по минимальным требованиям).
+1. Создайте две VM в Yandex Cloud с параметрами: 2CPU 4RAM Centos7 (остальное по минимальным требованиям).
+   ```
+   "id" = "158.160.98.81"
+    "name" = "nexus-01"
+
+    "id" = "158.160.112.83"
+    "name" = "sonar-01"
+   ```
 2. Пропишите в [inventory](./infrastructure/inventory/cicd/hosts.yml) [playbook](./infrastructure/site.yml) созданные хосты.
 3. Добавьте в [files](./infrastructure/files/) файл со своим публичным ключом (id_rsa.pub). Если ключ называется иначе — найдите таску в плейбуке, которая использует id_rsa.pub имя, и исправьте на своё.
 4. Запустите playbook, ожидайте успешного завершения.
 5. Проверьте готовность SonarQube через [браузер](http://localhost:9000).
 6. Зайдите под admin\admin, поменяйте пароль на свой.
-7.  Проверьте готовность Nexus через [бразуер](http://localhost:8081).
+7. Проверьте готовность Nexus через [бразуер](http://localhost:8081).
 8. Подключитесь под admin\admin123, поменяйте пароль, сохраните анонимный доступ.
 
 ## Знакомоство с SonarQube
 
-### Основная часть
+1. Создаеv новый проект, название произвольное.
+2. Устанавливаем пакет sonar-scanner, под свою систему.
+3. Добавляем ```export PATH=$PATH:$(pwd)```.
+4. Проверяем `sonar-scanner --version`.
+   ```
+   15:06:03.166 INFO  Project root configuration file: NONE
+   15:06:03.177 INFO  SonarScanner CLI 7.0.2.4839
+   15:06:03.178 INFO  Java 17.0.13 Eclipse Adoptium (64-bit)
+   15:06:03.179 INFO  Linux 6.11.0-19-generic amd64
+   ```
+5. Запускаем анализатор против кода из директории [example](./example):
+   ```
+   sonar-scanner \
+     Dsonar.projectKey=sonarproject \
+     Dsonar.sources=. \
+     Dsonar.host.url=http://158.160.112.83:9000 \
+     Dsonar.login=xxxxxxxxxxxxxxxxxxxxxxx \
+     Dsonar.coverage.exclusions=fail.py
+   ```
+7. Исправляем ошибки, которые он выявил, включая warnings.
+8. Запускаем анализатор повторно — проверьте, что QG пройдены успешно:
 
-1. Создайте новый проект, название произвольное.
-2. Скачайте пакет sonar-scanner, который вам предлагает скачать SonarQube.
-3. Сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).
-4. Проверьте `sonar-scanner --version`.
-5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.
-6. Посмотрите результат в интерфейсе.
-7. Исправьте ошибки, которые он выявил, включая warnings.
-8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
-9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
+![изображение](https://github.com/user-attachments/assets/fd91d03f-9ecf-4f39-ac12-2915ac16ee0e)
+
 
 ## Знакомство с Nexus
 
