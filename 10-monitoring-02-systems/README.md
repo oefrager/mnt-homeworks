@@ -82,10 +82,12 @@ push-модели
 7. Склонируйте себе [репозиторий](https://github.com/influxdata/sandbox/tree/master) и запустите TICK-стэк, 
 используя технологии docker и docker-compose.
 
-    ![изображение](https://github.com/user-attachments/assets/8aabbecf-4cee-4816-8713-7437d64deb88)
+   ![Снимок экрана от 2025-03-18 18-50-23](https://github.com/user-attachments/assets/9ace9983-e494-4f66-a0a8-d49b02f3bf34)
+
 
 
 Для запуска прописал режим `Z` `(..ххх/data:/var/lib.ххх:Z`) и дал права на папки `sudo chmod 777 xxx/data`
+
 #
 8. Перейдите в веб-интерфейс Chronograf (http://localhost:8888) и откройте вкладку Data explorer.
         
@@ -94,7 +96,8 @@ push-модели
     - В `measurments` выберите cpu->host->telegraf-getting-started, а в `fields` выберите usage_system. Внизу появится график утилизации cpu.
     - Вверху вы можете увидеть запрос, аналогичный SQL-синтаксису. Поэкспериментируйте с запросом, попробуйте изменить группировку и интервал наблюдений.
 
-Для выполнения задания приведите скриншот с отображением метрик утилизации cpu из веб-интерфейса.
+   ![изображение](https://github.com/user-attachments/assets/8aabbecf-4cee-4816-8713-7437d64deb88)
+
 #
 9. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
 Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
