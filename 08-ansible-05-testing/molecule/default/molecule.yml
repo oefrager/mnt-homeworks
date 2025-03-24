@@ -14,6 +14,9 @@ platforms:
   - name: ubuntu
     image: docker.io/pycontribs/ubuntu:latest
     pre_build_image: true
+  - name: oraclelinux
+    image: docker.io/oraclelinux:8
+    pre_build_image: true    
 provisioner:
   name: ansible
 verifier:
