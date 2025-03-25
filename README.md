@@ -21,9 +21,9 @@
 9. [Процессы CI/CD](./09-ci-03-cicd/README.md).
 
 10. [Jenkins](./09-ci-04-jenkins/README.md).
-<!--- 
-11. [Teamcity](./09-ci-05-teamcity/README.md).
 
+11. [Teamcity](./09-ci-05-teamcity/README.md).
+<!--- 
 12. [GitLab](./09-ci-06-gitlab/README.md).
 --->
 ## Системы мониторинга
