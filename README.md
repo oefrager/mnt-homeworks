@@ -29,9 +29,9 @@
 ## Системы мониторинга
 
 13. [Системы мониторинга](./10-monitoring-02-systems).
-<!--- 
+ 
 14. [Средство визуализации Grafana](./10-monitoring-03-grafana).
-
+<!--- 
 15. [Система сбора логов Elastic Stack](./10-monitoring-04-elk).
 
 16. [Платформа мониторинга Sentry](./10-monitoring-05-sentry).
