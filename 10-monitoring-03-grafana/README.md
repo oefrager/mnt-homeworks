@@ -2,13 +2,11 @@
 
 ## Задание повышенной сложности
 
-**При решении задания 1** не используйте директорию [help](./help) для сборки проекта. Самостоятельно разверните grafana, где в роли источника данных будет выступать prometheus, а сборщиком данных будет node-exporter:
+**При решении задания 1** Самостоятельно развернул grafana, где в роли источника данных будет выступать prometheus, а сборщиком данных будет node-exporter:
 
 - grafana;
 - prometheus-server;
 - prometheus node-exporter.
-
-За дополнительными материалами можете обратиться в официальную документацию grafana и prometheus.
 
 В решении использовался конфигурация [docker]().
 
@@ -28,22 +26,28 @@
 
 ## Задание 2
 
-Изучите самостоятельно ресурсы:
-
-1. [PromQL tutorial for beginners and humans](https://valyala.medium.com/promql-tutorial-for-beginners-9ab455142085).
-1. [Understanding Machine CPU usage](https://www.robustperception.io/understanding-machine-cpu-usage).
-1. [Introduction to PromQL, the Prometheus query language](https://grafana.com/blog/2020/02/04/introduction-to-promql-the-prometheus-query-language/).
-
 Создайте Dashboard и в ней создайте Panels:
 
 - утилизация CPU для nodeexporter (в процентах, 100-idle);
+     ```
+     100 - (avg by (cpu)(irate(node_cpu_seconds_total{job="node",mode="idle"}[5m])) * 100) 
+     ```
 - CPULA 1/5/15;
+     ```
+      node_load1    node_load5    node_load15
+     ``` 
 - количество свободной оперативной памяти;
+     ```
+     node_memory_MemFree_bytes
+     ```
 - количество места на файловой системе.
+     ```
+     node_filesystem_avail_bytes
+     ```  
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
-  ![изображение](https://github.com/user-attachments/assets/3712a91e-1e43-45b2-8190-aac728eec868)
+  ![изображение](https://github.com/user-attachments/assets/bb9a829c-2385-4676-a8ad-e00d9c96958e)
 
 ## Задание 3
 
