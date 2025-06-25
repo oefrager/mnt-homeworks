@@ -35,6 +35,3 @@
 15. [Система сбора логов Elastic Stack](./10-monitoring-04-elk).
  
 16. [Платформа мониторинга Sentry](./10-monitoring-05-sentry).
-
-<<<<<<< HEAD
-
