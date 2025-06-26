@@ -2,7 +2,7 @@
 
 ## Задание 1
 
-Поднимаем в докере используя директории [help](./help) :
+Поднимаем в докере используя директории [help](./src) c доработками :
 
 - elasticsearch (hot и warm ноды);
 - logstash;
@@ -17,7 +17,7 @@ Filebeat следует сконфигурировать для отправки
 
 - скриншот `docker ps` через 5 минут после старта всех контейнеров (их должно быть 5);
 
-![изображение](https://github.com/user-attachments/assets/af95696c-fd7b-4fad-9b84-8c92db2bb871)
+![изображение](https://github.com/user-attachments/assets/28bdb724-e3dd-48b1-8295-4dbc599d1308)
 
 - скриншот интерфейса kibana;
 
