@@ -1,25 +1,21 @@
-##Предварительно выполнить на Linux хосте команду: sudo sysctl -w vm.max_map_count=262144
-##https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_set_vm_max_map_count_to_at_least_262144
-#
-##kibana address: http://127.0.0.1:5601 будет доступно через ~1-2 мин
-#
-#
-version: '3.9'
-services:
+#version: "3.9"
 
-  es-hot:
-    image: elasticsearch:8.11.3 #8.7.0
-    container_name: es-hot
+services:
+  elasticsearch-hot:
+    image: elasticsearch:8.11.3
+    container_name: elasticsearch-hot
     environment:
-      - node.name=es-hot
+      - node.name=elasticsearch-hot
       - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es-hot,es-warm
-      - cluster.initial_master_nodes=es-hot,es-warm
+      - discovery.seed_hosts=elasticsearch-hot,elasticsearch-warm
+      - cluster.initial_master_nodes=elasticsearch-hot,elasticsearch-warm
       - node.roles=master,data_content,data_hot  
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - "http.host=0.0.0.0"
       - xpack.security.enabled=false
     volumes:
+      #- ./elasticsearch/01/config/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      #- ./elasticsearch/01/data:/usr/share/elasticsearch/data
       - data01:/usr/share/elasticsearch/data:Z
     ulimits:
       memlock:
@@ -33,21 +29,23 @@ services:
     networks:
       - elastic
     depends_on:
-      - es-warm
+      - elasticsearch-warm
 
-  es-warm:
-    image: elasticsearch:8.11.3 #8.7.0
-    container_name: es-warm
+  elasticsearch-warm:
+    image: elasticsearch:8.11.3
+    container_name: elasticsearch-warm
     environment:
-      - node.name=es-warm
+      - node.name=elasticsearch-warm
       - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es-hot,es-warm
-      - cluster.initial_master_nodes=es-hot,es-warm
+      - discovery.seed_hosts=elasticsearch-hot,elasticsearch-warm
+      - cluster.initial_master_nodes=elasticsearch-hot,elasticsearch-warm
       - node.roles=master,data_warm
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - xpack.security.enabled=false
       - "http.host=0.0.0.0"
     volumes:
+      #- ./elasticsearch/02/config/config.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      #- ./elasticsearch/02/data:/usr/share/elasticsearch/data
       - data02:/usr/share/elasticsearch/data:Z
     ulimits:
       memlock:
@@ -59,41 +57,37 @@ services:
     networks:
       - elastic
 
-  kibana:
-    image: kibana:8.11.3  #8.7.0
-    container_name: kibana
-    ports:
-      - 5601:5601
-    environment:
-      ELASTICSEARCH_URL: http://es-hot:9200
-      ELASTICSEARCH_HOSTS: '["http://es-hot:9200","http://es-warm:9200"]'
-    networks:
-      - elastic
-    depends_on:
-      - es-hot
-      - es-warm
-
   logstash:
     image: logstash:8.11.3
-#    image: logstash:8.7.0
     container_name: logstash
-    environment:
-      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
-    ports:
-      - 5046:5046
-      - 5044:5044
     volumes:
-      - ./configs/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:Z
-      - ./configs/logstash.yml:/opt/logstash/config/logstash.yml:Z
+      - ./logstash/config.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
     networks:
       - elastic
     depends_on:
-      - es-hot
-      - es-warm
+      - elasticsearch-hot
+
+  kibana:
+    image: kibana:8.11.3
+    container_name: kibana
+    depends_on:
+      - elasticsearch-hot
+    volumes:
+      - ./kibana/config.yml:/usr/share/kibana/config/kibana.yml:ro
+    networks:
+      - elastic
+    ports:
+      - "5601:5601"
 
   filebeat:
     image: elastic/filebeat:8.11.4
-#   image: elastic/filebeat:8.7.0
     container_name: filebeat
     privileged: true
     user: root
@@ -107,12 +101,14 @@ services:
     networks:
       - elastic
 
-  some_application:
+  application:
     image: library/python:3.9-alpine
-    container_name: some_app
+    container_name: application
     volumes:
-      - ./pinger/:/opt/:Z 
+      - ./pinger/:/opt/:Z
     entrypoint: python3 /opt/run.py
+    networks:
+      - elastic
 
 volumes:
   data01:
