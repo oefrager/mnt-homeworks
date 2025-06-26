@@ -1,5 +1,0 @@
-cluster.name: "elastic-cluster"
-node.name: elastic-warm
-discovery.type: multi-node
-network.host: 0.0.0.0
-xpack.security.enabled: false
