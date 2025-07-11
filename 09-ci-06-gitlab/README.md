@@ -5,13 +5,26 @@
 
 1. Или подготовьте к работе Managed GitLab от yandex cloud [по инструкции](https://cloud.yandex.ru/docs/managed-gitlab/operations/instance/instance-create) .
 Или создайте виртуальную машину из публичного образа [по инструкции](https://cloud.yandex.ru/marketplace/products/yc/gitlab ) .
+
+<img width="1144" height="117" alt="изображение" src="https://github.com/user-attachments/assets/2391faa3-12a6-4ebd-afe6-744ad92a5eb7" />
+
 2. Создайте виртуальную машину и установите на нее gitlab runner, подключите к вашему серверу gitlab  [по инструкции](https://docs.gitlab.com/runner/install/linux-repository.html) .
 
-3. (* Необязательное задание повышенной сложности. )  Если вы уже знакомы с k8s попробуйте выполнить задание, запустив gitlab server и gitlab runner в k8s  [по инструкции](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/gitlab-containers). 
+<img width="820" height="121" alt="изображение" src="https://github.com/user-attachments/assets/50752369-64ea-4a48-8532-a21d621c884b" />
 
-4. Создайте свой новый проект.
-5. Создайте новый репозиторий в GitLab, наполните его [файлами](./repository).
-6. Проект должен быть публичным, остальные настройки по желанию.
+<img width="394" height="129" alt="изображение" src="https://github.com/user-attachments/assets/6c484699-dae9-41ea-a697-8cc3a483a0b8" />
+
+<img width="1047" height="354" alt="изображение" src="https://github.com/user-attachments/assets/5de4e6bf-e4c6-4f96-b0cf-037266fc56ef" />
+
+3. Создайте свой новый проект.
+
+<img width="1050" height="371" alt="изображение" src="https://github.com/user-attachments/assets/86973ee7-f459-4737-a139-529cf9231a21" />
+
+4. Создайте новый репозиторий в GitLab, наполните его [файлами](./repository).
+
+<img width="768" height="273" alt="изображение" src="https://github.com/user-attachments/assets/7e22f956-ca21-49d7-80b7-85e804a2ad6b" />
+
+5. Проект должен быть публичным, остальные настройки по желанию.
 
 ## Основная часть
 
